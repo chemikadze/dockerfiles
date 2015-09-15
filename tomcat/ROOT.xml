@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Context
+    reloadable="true"
+    allowLinking="true"
+    path="/"
+    debug="5"
+    crossContext="true"
+    docBase="file:///tomcat/webapps/ROOT.war"
+>
+
+  <Environments
+      name="appEnvironment"
+      value="_default"
+      type="java.lang.String"
+      override="false"
+  />
+  <Resource
+      maxActive="8"
+      name="jdbc/datasource"
+      auth="Container"
+      url="jdbc:mysql://MYSQL_HOST:MYSQL_PORT/petclinic?autoReconnect=true"
+      username="MYSQL_USERNAME"
+      maxWait="-1"
+      maxIdle="8"
+      testOnReturn="true"
+      validationQuery="select 1"
+      testWhileIdle="true"
+      type="javax.sql.DataSource"
+      password="MYSQL_PASSWORD"
+      driverClassName="com.mysql.jdbc.Driver"
+  />
+</Context>
