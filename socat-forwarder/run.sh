@@ -33,7 +33,11 @@ while getopts ":L:d" opt; do
 done
 
 if [ ! x$DRY_RUN == x1 ]; then
-  echo $ARGS | xargs -P $NTUNNELS -n 2 bash -c 'socat $0 $1'
+  if [ ! x$NTUNNELS == x0 ]; then
+    echo $ARGS | xargs -P $NTUNNELS -n 2 bash -c 'socat $0 $1'
+  else
+    sleep infinity
+  fi
 else
   echo "Dry run, generated config:"
   echo "=========================="
